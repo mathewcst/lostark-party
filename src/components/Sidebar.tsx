@@ -3,6 +3,8 @@ import { changelog } from '@/routes/changelog/-changelog'
 import { Link } from '@tanstack/react-router'
 import { PropsWithChildren } from 'react'
 import { Menu } from './Menu'
+import { UserButton } from './UserButton'
+import { GithubIcon } from './icons/Github'
 import { KofiIcon } from './icons/Kofi'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
@@ -33,7 +35,18 @@ export const Sidebar = () => {
           </a>
         </TooltipItem>
 
-        {/*<UserButton />*/}
+        <TooltipItem label="Github Repo" className="border-loa-orange">
+          <a
+            href="https://github.com/mathewcst/lostark-party"
+            target="_blank"
+            aria-label="Github repo"
+            className="bg-loa-gray w-full p-4 flex flex-row items-center justify-center rounded-lg hover:bg-loa-orange transition-colors duration-200 hover:text-loa-black gap-2"
+          >
+            <GithubIcon className="h-5 w-5 fill-current" />
+          </a>
+        </TooltipItem>
+
+        <UserButton />
 
         <Link to="/changelog">
           {/* Here we get index 0 cause the array is sorted */}

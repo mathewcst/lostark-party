@@ -18,7 +18,21 @@ const Title = ({ children }: PropsWithChildren) => {
   )
 }
 
+const Header = ({ children }: PropsWithChildren) => {
+  return (
+    <div className="flex flex-col sm:flex-row items-center justify-between w-full bg-loa-black/50 p-4">
+      {children}
+    </div>
+  )
+}
+
+const Subtitle = ({ children }: PropsWithChildren) => {
+  return <h3 className="uppercase text-xl font-light">{children}</h3>
+}
+
 export const Section = {
   Root,
   Title,
+  Header,
+  Subtitle,
 }

@@ -1,7 +1,7 @@
 import { Section } from '@/components/Section'
 import { createFileRoute } from '@tanstack/react-router'
 import { changelog } from './-changelog'
-import { ChangelogItem } from './-components/-ChangelogItem'
+import { ChangelogItem } from './components/-ChangelogItem'
 
 export const Route = createFileRoute('/changelog/')({
   component: ChangelogRoute,

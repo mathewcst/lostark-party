@@ -29,7 +29,7 @@ export const UserButton = () => {
             <button
               name="Login with Discord"
               aria-label="Login with Discord"
-              className="flex h-10 w-10 items-center justify-center rounded-md bg-discord transition-all duration-200 hover:bg-discord/80"
+              className="flex h-12 w-12 items-center justify-center rounded-md bg-discord transition-all duration-200 hover:bg-discord/80"
             >
               <DiscordIcon className="h-4 w-4" />
             </button>
@@ -38,7 +38,7 @@ export const UserButton = () => {
       </ClerkLoaded>
 
       <ClerkLoading>
-        <div className="flex h-10 w-10 items-center justify-center rounded-md bg-gray-500 animate-pulse">
+        <div className="flex h-12 w-12 items-center justify-center rounded-md bg-gray-500 animate-pulse">
           <UserIcon className="h-4 w-4" />
         </div>
       </ClerkLoading>
