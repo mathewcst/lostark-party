@@ -3,6 +3,10 @@
 interface ImportMetaEnv {
   // CLERK
   readonly VITE_CLERK_PUBLISHABLE_KEY: string
+  readonly CLERK_JWT_ISSUER_DOMAIN: string
+  // CONVEX
+  readonly VITE_CONVEX_URL: string
+  readonly CONVEX_DEPLOYMENT: string
   // SENTRY
   readonly VITE_SENTRY_DNS: string
 
