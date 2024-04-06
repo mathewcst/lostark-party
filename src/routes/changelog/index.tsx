@@ -14,11 +14,7 @@ function ChangelogRoute() {
 
       <div className="my-4">
         {changelog.map((item) => (
-          <ChangelogItem
-            key={item.version}
-            version={item.version}
-            description={item.description}
-          />
+          <ChangelogItem key={item.version} item={item} />
         ))}
       </div>
     </Section.Root>

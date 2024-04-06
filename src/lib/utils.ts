@@ -8,3 +8,12 @@ export function cn(...inputs: ClassValue[]) {
 export function generate_id() {
   return crypto.randomUUID()
 }
+
+export function dateFormatter() {
+  const langCode = navigator.language
+  const formatter = new Intl.DateTimeFormat(langCode, {
+    dateStyle: 'medium',
+  })
+
+  return formatter
+}

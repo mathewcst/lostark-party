@@ -1,4 +1,5 @@
 import { APP_ASSETS_URL } from '@/config/constants'
+import { changelog } from '@/routes/changelog/-changelog'
 import { Link } from '@tanstack/react-router'
 import { PropsWithChildren } from 'react'
 import { Menu } from './Menu'
@@ -35,7 +36,8 @@ export const Sidebar = () => {
         {/*<UserButton />*/}
 
         <Link to="/changelog">
-          <p className="text-sm text-white/50">v0.0.1</p>
+          {/* Here we get index 0 cause the array is sorted */}
+          <p className="text-sm text-white/50">{changelog[0].version}</p>
         </Link>
       </div>
     </aside>
