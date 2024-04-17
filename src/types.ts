@@ -1,5 +1,4 @@
-import { COMBAT_ENGRAVINGS } from './lib/engravings'
-import { CLASS_ENGRAVINGS } from './lib/lostark/engravings'
+import { CLASS_ENGRAVINGS, COMBAT_ENGRAVINGS } from './lib/lostark/engravings'
 
 export type CombatEngraving = (typeof COMBAT_ENGRAVINGS)[number]
 export type ClassEngraving = typeof CLASS_ENGRAVINGS
