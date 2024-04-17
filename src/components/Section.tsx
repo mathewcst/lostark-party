@@ -3,11 +3,7 @@ import { PropsWithChildren } from 'react'
 import { cn } from '@/lib/utils'
 
 const Root = ({ children }: PropsWithChildren) => {
-  return (
-    <section className={cn('p-8 text-white container mx-auto max-w-screen-xl')}>
-      {children}
-    </section>
-  )
+  return <section className={cn('p-8 text-white')}>{children}</section>
 }
 
 const Title = ({ children }: PropsWithChildren) => {

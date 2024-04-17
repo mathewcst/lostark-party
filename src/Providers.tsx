@@ -1,8 +1,5 @@
 import { PropsWithChildren } from 'react'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-
 import { ClerkProvider, useAuth } from '@clerk/clerk-react'
 import { dark } from '@clerk/themes'
 
@@ -12,13 +9,11 @@ import { ConvexProviderWithClerk } from 'convex/react-clerk'
 import { TooltipProvider } from './components/ui/tooltip'
 import { COLORS } from './config/constants'
 
-type ProviderProps = PropsWithChildren & {
-  queryClient: QueryClient
-}
+type ProviderProps = PropsWithChildren
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string)
 
-export const Providers = ({ children, queryClient }: ProviderProps) => {
+export const Providers = ({ children }: ProviderProps) => {
   return (
     <ClerkProvider
       publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}
@@ -35,10 +30,7 @@ export const Providers = ({ children, queryClient }: ProviderProps) => {
       }}
     >
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
+        <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
       </ConvexProviderWithClerk>
     </ClerkProvider>
   )

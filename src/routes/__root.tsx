@@ -1,12 +1,9 @@
-import { QueryClient } from '@tanstack/react-query'
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 
 import { Sidebar } from '@/components/Sidebar'
 
-export const Route = createRootRouteWithContext<{
-  queryClient: QueryClient
-}>()({
+export const Route = createRootRouteWithContext()({
   component: App,
 })
 
@@ -18,7 +15,9 @@ function App() {
     >
       <Sidebar />
 
-      <Outlet />
+      <main className="w-full max-w-screen-xl  container mx-auto">
+        <Outlet />
+      </main>
 
       {import.meta.env.DEV && (
         <TanStackRouterDevtools position="bottom-right" />
