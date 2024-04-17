@@ -16,7 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { CLASSES_OPTION } from '@/lib/classes'
+import { CLASSES } from '@/lib/lostark/classes'
 import { useState } from 'react'
 
 type ClassPickerProps = {
@@ -40,8 +40,8 @@ export const ClassPicker = ({ setClss }: ClassPickerProps) => {
           {value ? (
             <div className="flex items-center">
               <ClassIcon clss={value} className="w-6 h-6" />
-              <span className="ml-2">
-                {CLASSES_OPTION.find((clss) => clss.value === value)?.label}
+              <span className="ml-2 capitalize">
+                {CLASSES.find((clss) => clss.name === value)?.name}
               </span>
             </div>
           ) : (
@@ -59,21 +59,21 @@ export const ClassPicker = ({ setClss }: ClassPickerProps) => {
             <CommandEmpty>No class found.</CommandEmpty>
 
             <CommandGroup>
-              {CLASSES_OPTION.map((clss) => (
+              {CLASSES.map((clss) => (
                 <CommandItem
-                  key={clss.value}
-                  value={clss.value}
+                  key={clss.name}
+                  value={clss.name}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? '' : currentValue)
                     setClss(currentValue)
                     setOpen(false)
                   }}
-                  className=""
+                  className="capitalize"
                 >
                   <div className="mr-2">
-                    <ClassIcon clss={clss.value} className="w-6 h-6" />
+                    <ClassIcon clss={clss.name} className="w-6 h-6" />
                   </div>
-                  {clss.label}
+                  {clss.name}
                 </CommandItem>
               ))}
             </CommandGroup>
