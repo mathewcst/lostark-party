@@ -24,7 +24,6 @@ const userSchema = v.object({
   picture: v.optional(v.string()),
   email: v.string(),
   username: v.string(),
-  supporter: v.optional(v.boolean()),
 })
 
 const partySchema = v.object({
