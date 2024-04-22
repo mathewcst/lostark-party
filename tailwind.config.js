@@ -32,6 +32,9 @@ module.exports = {
         'loa-green': '#05C78D',
         'discord': '#5865F2',
         'kofi': '#13C3FF',
+        'loa-party-normal': '#129fdb',
+        'loa-party-hard': '#db2d12',
+        'loa-party-hell': '#e8093d',
         'primary': {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
