@@ -1,5 +1,6 @@
 import { Section } from '@/components/Section'
 import { createLazyFileRoute } from '@tanstack/react-router'
+import { AddCharacter } from './components/-AddCharacter'
 import { CharacterList } from './components/-CharactersList'
 
 export const Route = createLazyFileRoute('/roster/')({
@@ -9,7 +10,10 @@ export const Route = createLazyFileRoute('/roster/')({
 function RosterPage() {
   return (
     <Section.Root>
-      <Section.Title>Roster</Section.Title>
+      <Section.Header>
+        <Section.Subtitle>My Roster</Section.Subtitle>
+        <AddCharacter />
+      </Section.Header>
 
       <CharacterList />
     </Section.Root>

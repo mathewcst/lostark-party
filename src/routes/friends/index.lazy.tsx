@@ -8,7 +8,9 @@ export const Route = createLazyFileRoute('/friends/')({
 function FriendsPage() {
   return (
     <Section.Root>
-      <Section.Title>Friends</Section.Title>
+      <Section.Header>
+        <Section.Subtitle>Friends</Section.Subtitle>
+      </Section.Header>
     </Section.Root>
   )
 }

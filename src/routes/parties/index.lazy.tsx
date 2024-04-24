@@ -12,7 +12,7 @@ function PartiesPage() {
   return (
     <Section.Root>
       <Section.Header className="mb-4">
-        <Section.Title>Parties</Section.Title>
+        <Section.Subtitle>Parties</Section.Subtitle>
         <div className="flex-auto"></div>
         <Button variant="outline" className="uppercase">
           New
@@ -21,7 +21,11 @@ function PartiesPage() {
 
       <div className="grid grid-cols-2 gap-6">
         {RAIDS.map((raid) => (
-          <PartyCard key={raid.name} raid={raid} />
+          <PartyCard
+            key={raid.name}
+            raid={raid}
+            done={raid.name === 'Kakul Saydon' || raid.name === 'Akkan'}
+          />
         ))}
       </div>
     </Section.Root>
