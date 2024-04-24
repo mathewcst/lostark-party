@@ -4,21 +4,36 @@ import { Link } from '@tanstack/react-router'
 
 type PartyCardProps = {
   raid: RaidsType
+  done?: boolean
 }
 
-export const PartyCard = ({ raid }: PartyCardProps) => {
+export const PartyCard = ({ raid, done }: PartyCardProps) => {
   return (
     <Link href="/">
-      <div className="w-full min-h-24 relative">
-        <span
-          className={cn(
-            'bg-loa-party-normal px-2 py-1 rounded-md text-sm uppercase absolute -top-2 -right-2 z-10',
-            { 'bg-loa-party-hard': raid.difficulties[0] === 'Hard' },
-            { 'bg-loa-party-hell': raid.difficulties[0] === 'Hell' },
-          )}
-        >
-          {raid.difficulties[0]}
-        </span>
+      <div
+        className={cn('w-full min-h-24 relative', {
+          'opacity-60 ': done,
+        })}
+      >
+        {done ? (
+          <span
+            className={cn(
+              'bg-green-500 px-2 py-1 rounded-md text-sm uppercase absolute -top-2 -right-2 z-10',
+            )}
+          >
+            done
+          </span>
+        ) : (
+          <span
+            className={cn(
+              'bg-loa-party-normal px-2 py-1 rounded-md text-sm uppercase absolute -top-2 -right-2 z-10',
+              { 'bg-loa-party-hard': raid.difficulties[0] === 'Hard' },
+              { 'bg-loa-party-hell': raid.difficulties[0] === 'Hell' },
+            )}
+          >
+            {raid.difficulties[0]}
+          </span>
+        )}
 
         <div className="w-full h-32 overflow-hidden flex flex-col items-start justify-center relative bg-loa-black rounded-tl-lg rounded-tr-lg">
           <img
