@@ -2,28 +2,45 @@ import { PropsWithChildren } from 'react'
 
 import { cn } from '@/lib/utils'
 
-const Root = ({ children }: PropsWithChildren) => {
-  return <section className={cn('p-8 text-white')}>{children}</section>
+type PropsWithClassname = PropsWithChildren & {
+  className?: string
 }
 
-const Title = ({ children }: PropsWithChildren) => {
+const Root = ({ children, className }: PropsWithClassname) => {
   return (
-    <h2 className={cn('uppercase text-white/50 text-xl font-medium')}>
+    <section className={cn('p-8 text-white', className)}>{children}</section>
+  )
+}
+
+const Title = ({ children, className }: PropsWithClassname) => {
+  return (
+    <h2
+      className={cn('uppercase text-white/50 text-xl font-medium', className)}
+    >
       {children}
     </h2>
   )
 }
 
-const Header = ({ children }: PropsWithChildren) => {
+const Header = ({ children, className }: PropsWithClassname) => {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between w-full bg-loa-black/50 p-4">
+    <div
+      className={cn(
+        'flex flex-col sm:flex-row items-center justify-between w-full bg-loa-black/50 p-4',
+        className,
+      )}
+    >
       {children}
     </div>
   )
 }
 
-const Subtitle = ({ children }: PropsWithChildren) => {
-  return <h3 className="uppercase text-xl font-light">{children}</h3>
+const Subtitle = ({ children, className }: PropsWithClassname) => {
+  return (
+    <h3 className={cn('uppercase text-xl font-light', className)}>
+      {children}
+    </h3>
+  )
 }
 
 export const Section = {

@@ -22,6 +22,7 @@ const RosterIndexLazyImport = createFileRoute('/roster/')()
 const PartiesIndexLazyImport = createFileRoute('/parties/')()
 const FriendsIndexLazyImport = createFileRoute('/friends/')()
 const RosterIdLazyImport = createFileRoute('/roster/$id')()
+const PartiesIdLazyImport = createFileRoute('/parties/$id')()
 
 // Create/Update Routes
 
@@ -55,12 +56,21 @@ const RosterIdLazyRoute = RosterIdLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/roster/$id.lazy').then((d) => d.Route))
 
+const PartiesIdLazyRoute = PartiesIdLazyImport.update({
+  path: '/parties/$id',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/parties/$id.lazy').then((d) => d.Route))
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/parties/$id': {
+      preLoaderRoute: typeof PartiesIdLazyImport
       parentRoute: typeof rootRoute
     }
     '/roster/$id': {
@@ -90,6 +100,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
+  PartiesIdLazyRoute,
   RosterIdLazyRoute,
   ChangelogIndexRoute,
   FriendsIndexLazyRoute,

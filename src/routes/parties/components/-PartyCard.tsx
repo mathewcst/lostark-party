@@ -20,7 +20,7 @@ export const PartyCard = ({ raid }: PartyCardProps) => {
           {raid.difficulties[0]}
         </span>
 
-        <div className="w-full h-32 overflow-hidden flex flex-col items-start justify-center relative bg-loa-black rounded-lg">
+        <div className="w-full h-32 overflow-hidden flex flex-col items-start justify-center relative bg-loa-black rounded-tl-lg rounded-tr-lg">
           <img
             src={raid.banner}
             alt={raid.name}
