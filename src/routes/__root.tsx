@@ -11,11 +11,11 @@ function App() {
   return (
     <div
       id="app"
-      className="bg-loa-gray min-h-screen w-full flex flex-row items-start justify-start gap-8"
+      className="bg-loa-gray min-h-screen w-full flex flex-row items-start justify-start sm:gap-8"
     >
       <Sidebar />
 
-      <main className="w-full max-w-screen-xl  container mx-auto">
+      <main className="w-full max-w-screen-xl container mx-auto">
         <Outlet />
       </main>
 

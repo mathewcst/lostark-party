@@ -17,8 +17,6 @@ export const Providers = ({ children }: ProviderProps) => {
   return (
     <ClerkProvider
       publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}
-      afterSignInUrl="/"
-      afterSignUpUrl="/"
       signInUrl="/"
       signUpUrl="/"
       appearance={{

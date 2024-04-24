@@ -1,6 +1,6 @@
+import { EmptyState } from '@/components/EmptyState'
 import { useRosterStore } from '@/store/roster'
 import { CharacterItem } from './-CharacterItem'
-import { NoCharacters } from './-NoCharacters'
 
 export const CharacterList = () => {
   const { characters } = useRosterStore((state) => state)
@@ -16,7 +16,7 @@ export const CharacterList = () => {
           ))}
         </div>
       ) : (
-        <NoCharacters />
+        <EmptyState>No characters found</EmptyState>
       )}
     </>
   )

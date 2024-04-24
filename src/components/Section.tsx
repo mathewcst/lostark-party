@@ -8,7 +8,9 @@ type PropsWithClassname = PropsWithChildren & {
 
 const Root = ({ children, className }: PropsWithClassname) => {
   return (
-    <section className={cn('p-8 text-white', className)}>{children}</section>
+    <section className={cn('p-2 sm:p-8 text-white', className)}>
+      {children}
+    </section>
   )
 }
 

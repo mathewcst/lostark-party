@@ -10,7 +10,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
 export const Sidebar = () => {
   return (
-    <aside className="flex flex-col bg-loa-black h-screen p-4 text-white items-center justify-center transition-all duration-200">
+    <aside className="sm:flex flex-col bg-loa-black h-screen p-4 text-white items-center justify-center transition-all duration-200">
       <img
         src={`${APP_ASSETS_URL}/logo_small.webp`}
         width={512}

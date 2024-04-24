@@ -1,8 +1,7 @@
+import { EmptyState } from '@/components/EmptyState'
 import { Section } from '@/components/Section'
-import { Button } from '@/components/ui/button'
-import { RAIDS } from '@/lib/lostark/raids'
 import { createLazyFileRoute } from '@tanstack/react-router'
-import { PartyCard } from './components/-PartyCard'
+import { NewParty } from './components/-NewParty'
 
 export const Route = createLazyFileRoute('/parties/')({
   component: PartiesPage,
@@ -11,23 +10,17 @@ export const Route = createLazyFileRoute('/parties/')({
 function PartiesPage() {
   return (
     <Section.Root>
-      <Section.Header className="mb-4">
+      <Section.Header>
         <Section.Subtitle>Parties</Section.Subtitle>
         <div className="flex-auto"></div>
-        <Button variant="outline" className="uppercase">
-          New
-        </Button>
+        <NewParty />
       </Section.Header>
 
-      <div className="grid grid-cols-2 gap-6">
-        {RAIDS.map((raid) => (
-          <PartyCard
-            key={raid.name}
-            raid={raid}
-            done={raid.name === 'Kakul Saydon' || raid.name === 'Akkan'}
-          />
-        ))}
-      </div>
+      <EmptyState>No parties found</EmptyState>
+
+      {/*<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+      </div>*/}
     </Section.Root>
   )
 }

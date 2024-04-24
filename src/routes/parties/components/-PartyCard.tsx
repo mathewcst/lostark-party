@@ -12,7 +12,7 @@ export const PartyCard = ({ raid, done }: PartyCardProps) => {
     <Link href="/">
       <div
         className={cn('w-full min-h-24 relative', {
-          'opacity-60 ': done,
+          'opacity-30 ': done,
         })}
       >
         {done ? (
@@ -40,10 +40,13 @@ export const PartyCard = ({ raid, done }: PartyCardProps) => {
             src={raid.banner}
             alt={raid.name}
             className="object-cover object-[65%_0] h-full"
+            width={900}
+            height={120}
+            sizes="(max-width: 900px) 100vw, 900px"
           />
           <div className=" absolute inset-y-0 left-0 my-auto flex flex-col items-start justify-center px-8">
             <div className="flex flex-row gap-4 items-center justify-center">
-              <h2 className="text-2xl font-bold">PT de Segunda</h2>
+              <h2 className="text-2xl font-bold">Juntos</h2>
             </div>
             <h3 className="my-2">{raid.name}</h3>
           </div>

@@ -12,16 +12,16 @@ export const Menu = () => {
           <HomeIcon />
         </MenuLink>
 
+        <MenuLink to="/parties" label="Parties">
+          <UserGroupIcon />
+        </MenuLink>
+
         <MenuLink to="/roster" label="My Roster">
           <StackIcon />
         </MenuLink>
 
         <MenuLink to="/friends" label="Friends">
           <UsersIcon />
-        </MenuLink>
-
-        <MenuLink to="/parties" label="Parties">
-          <UserGroupIcon />
         </MenuLink>
       </ul>
     </nav>
