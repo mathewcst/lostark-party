@@ -1,7 +1,9 @@
 import { EmptyState } from '@/components/EmptyState'
 import { Section } from '@/components/Section'
+import { RAIDS } from '@/lib/lostark/raids'
 import { createLazyFileRoute } from '@tanstack/react-router'
 import { NewParty } from './components/-NewParty'
+import { PartyCard } from './components/-PartyCard'
 
 export const Route = createLazyFileRoute('/parties/')({
   component: PartiesPage,
@@ -18,9 +20,11 @@ function PartiesPage() {
 
       <EmptyState>No parties found</EmptyState>
 
-      {/*<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        
-      </div>*/}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {RAIDS.map((raid) => (
+          <PartyCard key={raid.name} raid={raid} />
+        ))}
+      </div>
     </Section.Root>
   )
 }

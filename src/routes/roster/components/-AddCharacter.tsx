@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { isDesktop } from '@/hooks/useMediaQuery'
 import { cn } from '@/lib/utils'
 import { useRosterStore } from '@/store/roster'
 import { ComponentProps, useState } from 'react'
@@ -25,9 +25,9 @@ import { ClassPicker } from './-ClassPicker'
 
 export const AddCharacter = () => {
   const [open, setOpen] = useState<boolean>(false)
-  const isDesktop = useMediaQuery('(min-width: 768px)')
+  const Desktop = isDesktop()
 
-  if (isDesktop) {
+  if (Desktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>

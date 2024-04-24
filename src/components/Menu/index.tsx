@@ -6,8 +6,8 @@ import { MenuLink } from './MenuItem'
 
 export const Menu = () => {
   return (
-    <nav>
-      <ul className="flex flex-col items-center justify-center gap-4">
+    <nav className="w-full">
+      <ul className="flex flex-row sm:flex-col items-center justify-evenly sm:justify-center gap-4">
         <MenuLink to="/" label="Home">
           <HomeIcon />
         </MenuLink>

@@ -17,35 +17,34 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { isDesktop } from '@/hooks/useMediaQuery'
 import { cn } from '@/lib/utils'
 import { ComponentProps, useState } from 'react'
 import { RaidPicker } from './-RaidPicker'
 
 export const NewParty = () => {
-  const isDesktop = useMediaQuery('(min-width: 640px)')
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const Desktop = isDesktop()
 
-  if (isDesktop) {
+  if (Desktop) {
     return (
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger>
+        <SheetTrigger asChild>
           <Button variant="outline">Add New</Button>
         </SheetTrigger>
         <SheetContent>
-          <SheetHeader>
+          <SheetHeader className="mb-4">
             <SheetTitle>Create New Party</SheetTitle>
-            <SheetDescription>
-              <PartyForm setIsOpen={setIsOpen} />
-            </SheetDescription>
+            <SheetDescription>Create your new party</SheetDescription>
           </SheetHeader>
+          <PartyForm setIsOpen={setIsOpen} />
         </SheetContent>
       </Sheet>
     )
   }
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
-      <DrawerTrigger>
+      <DrawerTrigger asChild>
         <Button variant="outline">Add New</Button>
       </DrawerTrigger>
       <DrawerContent>

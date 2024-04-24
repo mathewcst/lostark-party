@@ -25,3 +25,5 @@ export function useMediaQuery(query: string): boolean {
 
   return matches
 }
+
+export const isDesktop = () => useMediaQuery('(min-width: 640px)')

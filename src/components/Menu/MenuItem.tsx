@@ -1,3 +1,4 @@
+import { isDesktop } from '@/hooks/useMediaQuery'
 import { cn } from '@/lib/utils'
 import { createLink, useRouterState } from '@tanstack/react-router'
 import { ComponentProps, ReactNode } from 'react'
@@ -15,6 +16,8 @@ export const MenuItem = ({ children, label, ...props }: MenuItemProps) => {
   const isActive =
     pathname === props.href || pathname.startsWith(`${props.href}/`)
 
+  const Desktop = isDesktop()
+
   return (
     <li className="w-full">
       <Tooltip>
@@ -30,7 +33,10 @@ export const MenuItem = ({ children, label, ...props }: MenuItemProps) => {
             {children}
           </a>
         </TooltipTrigger>
-        <TooltipContent side="right" className="bg-loa-gray border-loa-orange">
+        <TooltipContent
+          side={Desktop ? 'right' : 'top'}
+          className="bg-loa-gray border-loa-orange"
+        >
           <p>{label}</p>
         </TooltipContent>
       </Tooltip>

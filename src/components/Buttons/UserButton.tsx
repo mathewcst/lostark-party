@@ -6,8 +6,8 @@ import {
   SignedIn,
   SignedOut,
 } from '@clerk/clerk-react'
-import { DiscordIcon } from './icons/Discord'
-import { UserIcon } from './icons/User'
+import { DiscordIcon } from '../icons/Discord'
+import { UserIcon } from '../icons/User'
 
 export const UserButton = () => {
   return (
