@@ -1,27 +1,26 @@
+import { User } from '@convex/schema'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 type State = {
-  isSidebarOpen: boolean
+  user: User | null
+  isAuthenticated: boolean
 }
 
 type Actions = {
-  toggleSidebar: () => void
+  setUser: (user: User | null) => void
 }
 
 const initialState: State = {
-  isSidebarOpen: false,
+  user: null,
+  isAuthenticated: false,
 }
 
 export const useAppStore = create<State & Actions>()(
   persist(
     (set) => ({
       ...initialState,
-      toggleSidebar: () => {
-        set((state) => ({
-          isSidebarOpen: !state.isSidebarOpen,
-        }))
-      },
+      setUser: (user) => set({ user, isAuthenticated: !!user }),
     }),
     {
       name: '@lostark-party/app',

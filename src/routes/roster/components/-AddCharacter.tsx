@@ -1,3 +1,4 @@
+import { LoginButton } from '@/components/Buttons/LoginButton'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -19,13 +20,19 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { isDesktop } from '@/hooks/useMediaQuery'
 import { cn } from '@/lib/utils'
+import { useAppStore } from '@/store/app'
 import { useRosterStore } from '@/store/roster'
 import { ComponentProps, useState } from 'react'
 import { ClassPicker } from './-ClassPicker'
 
 export const AddCharacter = () => {
+  const { isAuthenticated } = useAppStore((state) => state)
   const [open, setOpen] = useState<boolean>(false)
   const Desktop = isDesktop()
+
+  if (!isAuthenticated) {
+    return <LoginButton>Login</LoginButton>
+  }
 
   if (Desktop) {
     return (

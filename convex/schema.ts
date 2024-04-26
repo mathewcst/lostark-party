@@ -1,7 +1,7 @@
 import { defineSchema, defineTable } from 'convex/server'
 import { Infer, v } from 'convex/values'
 
-const raids = v.union(
+export const raids = v.union(
   v.literal('Argos'),
   v.literal('Valtan'),
   v.literal('Vykas'),
@@ -13,7 +13,7 @@ const raids = v.union(
   v.literal('Thaemine'),
 )
 
-const raid_difficulty = v.union(
+export const raid_difficulty = v.union(
   v.literal('Normal'),
   v.literal('Hard'),
   v.literal('Hell'),

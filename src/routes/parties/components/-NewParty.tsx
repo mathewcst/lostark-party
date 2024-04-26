@@ -1,3 +1,4 @@
+import { LoginButton } from '@/components/Buttons/LoginButton'
 import { Button } from '@/components/ui/button'
 import {
   Drawer,
@@ -18,13 +19,22 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { isDesktop } from '@/hooks/useMediaQuery'
-import { cn } from '@/lib/utils'
+import { cn, generate_id } from '@/lib/utils'
+import { useAppStore } from '@/store/app'
+import { api } from '@convex/_generated/api'
+import { Raid } from '@convex/schema'
+import { useMutation } from 'convex/react'
 import { ComponentProps, useState } from 'react'
 import { RaidPicker } from './-RaidPicker'
 
 export const NewParty = () => {
+  const { isAuthenticated } = useAppStore((state) => state)
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const Desktop = isDesktop()
+
+  if (!isAuthenticated) {
+    return <LoginButton>Login</LoginButton>
+  }
 
   if (Desktop) {
     return (
@@ -65,13 +75,26 @@ type PartyFormProps = ComponentProps<'form'> & {
 }
 
 function PartyForm({ className, setIsOpen }: PartyFormProps) {
+  const createOrUpdate = useMutation(api.parties.createOrUpdateParty)
+  const { user } = useAppStore((state) => state)
+
   const [name, setName] = useState<string>('')
-  const [raid, setRaid] = useState<string>('')
+  const [raid, setRaid] = useState<Raid | null>(null)
 
   const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    console.log(name)
-    console.log(raid)
+
+    const partyID = generate_id()
+
+    createOrUpdate({
+      ownerId: user?.userId || '',
+      partyId: partyID,
+      name,
+      raid: raid!,
+      members: [],
+      difficulty: 'Normal',
+    })
+
     setIsOpen(false)
   }
 

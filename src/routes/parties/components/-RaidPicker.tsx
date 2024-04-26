@@ -16,10 +16,11 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { RAIDS } from '@/lib/lostark/raids'
+import { Raid } from '@convex/schema'
 import { useState } from 'react'
 
 type RaidPickerProps = {
-  setRaid: (raid: string) => void
+  setRaid: (raid: Raid | null) => void
 }
 
 export const RaidPicker = ({ setRaid }: RaidPickerProps) => {
@@ -63,7 +64,7 @@ export const RaidPicker = ({ setRaid }: RaidPickerProps) => {
                   value={clss.name}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? '' : currentValue)
-                    setRaid(currentValue)
+                    setRaid(currentValue as Raid)
                     setOpen(false)
                   }}
                   className="capitalize"
